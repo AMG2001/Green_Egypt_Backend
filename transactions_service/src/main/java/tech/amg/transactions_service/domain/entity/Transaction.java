@@ -2,6 +2,7 @@ package tech.amg.transactions_service.domain.entity;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;
+import org.bson.types.ObjectId;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,7 +14,7 @@ import java.time.LocalTime;
 @Document
 public class Transaction {
     @Id
-    Long transactionId;
+    private ObjectId transactionId;
     Long userId;
 @Email(message = "Enter Valid email !!")
 String userEmail;
