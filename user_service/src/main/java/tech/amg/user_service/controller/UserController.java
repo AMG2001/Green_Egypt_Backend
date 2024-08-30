@@ -1,8 +1,10 @@
 package tech.amg.user_service.controller;
 
 
+import com.mongodb.DuplicateKeyException;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tech.amg.user_service.domain.entity.User;
@@ -39,9 +41,16 @@ public class UserController {
         }
     }
 
-//    @PostMapping
-//    public ResponseEntity<?> addNewUser(@RequestBody User user){
-//
-//    }
+    @PostMapping
+    public ResponseEntity<?> addNewUser(@RequestBody User newUser){
+try{
+    User newUserWithFullAttributes = userService.addNewUser(newUser);
+    return ResponseEntity.ok(newUserWithFullAttributes);
+}catch (DuplicateKeyException e) {
+    return ResponseEntity.status(HttpStatus.CONFLICT).body("Email or Phone number already exists.");
+}catch (Exception e){
+    return ResponseEntity.badRequest().build();
+}
+    }
 
 }

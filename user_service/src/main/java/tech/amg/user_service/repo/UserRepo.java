@@ -15,4 +15,6 @@ public interface UserRepo extends MongoRepository<User, ObjectId> {
 
     public User findByUuid(String uuid);
 
+    public User findByPhoneNumber(String phoneNumber);
+
 }
