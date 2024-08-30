@@ -9,12 +9,12 @@ import java.util.UUID;
 
 
 @Repository
-public interface UserRepo extends MongoRepository<User, ObjectId> {
+public interface UserRepo extends MongoRepository<User, UUID> {
 
-    public User findByEmail(String email);
+    User findByEmail(String email);
 
-    public User findByUuid(String uuid);
+    User findByUuid(String uuid);
 
-    public User findByPhoneNumber(String phoneNumber);
+    User findByPhoneNumber(String phoneNumber);
 
 }
