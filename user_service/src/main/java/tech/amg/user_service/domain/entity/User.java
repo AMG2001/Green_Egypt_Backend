@@ -16,7 +16,7 @@ import java.util.UUID;
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor
 public class User {
     @Id
-    private UUID id;
+    private String uuid;
     private String firstName;
     private String lastName;
     @Nullable
