@@ -4,8 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EcoFriendlyTipsService {
-    public static void main(String[] args) {
-        SpringApplication.run(EcoFriendlyTipsService.class, args);
-    }
+public class EcoFriendlyTipsApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(EcoFriendlyTipsApplication.class, args);
+	}
+
 }
