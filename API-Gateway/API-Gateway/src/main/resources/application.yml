@@ -8,14 +8,20 @@ spring:
     gateway:
       mvc:
         routes:
+#        ############################# Tips Service #############################
          - id: TIPS-SERVICE
            uri: lb://tips-service
            predicates:
              - Path= ${baseUrl}/tips/**
+#        ############################# User Service #############################
          - id: USER-SERVICE
            uri: lb://user-service
            predicates:
              - Path= ${baseUrl}/users/**
-
+#         ############################# User Service #############################
+         - id: TRANSACTION-SERVICE
+           uri: lb://transaction-service
+           predicates:
+             - Path= ${baseUrl}/transactions/**
 
 
