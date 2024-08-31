@@ -1,0 +1,21 @@
+baseUrl: /green_egypt/api/v1
+server:
+  port: 8097
+spring:
+  application:
+    name: API-Gateway
+  cloud:
+    gateway:
+      mvc:
+        routes:
+         - id: TIPS-SERVICE
+           uri: lb://tips-service
+           predicates:
+             - Path= ${baseUrl}/tips/**
+         - id: USER-SERVICE
+           uri: lb://user-service
+           predicates:
+             - Path= ${baseUrl}/users/**
+
+
+
