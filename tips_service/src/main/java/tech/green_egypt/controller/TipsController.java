@@ -39,8 +39,7 @@ public class TipsController {
     public ResponseEntity<?> addNewTip(@RequestParam String tipContent,
             @RequestParam MultipartFile tipIcon) {
         try {
-            tipService.addNewTip(tipContent, tipIcon);
-            return ResponseEntity.ok("New Tip Added");
+            return ResponseEntity.ok(tipService.addNewTip(tipContent, tipIcon));
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
         }

@@ -25,12 +25,13 @@ public class TipService {
         this.tipRepo=tipRepo;
     }
     
-    public void addNewTip(String tipContent,MultipartFile tipIcon) throws IOException{
+    public Tip addNewTip(String tipContent,MultipartFile tipIcon) throws IOException{
             Tip newTip = new Tip();
             newTip.setUuid(UUIDUtil.generateUUID());  
             newTip.setTipContent(tipContent);
             newTip.setTipIcon(tipIcon.getBytes());
             tipRepo.save(newTip);
+            return newTip;
     }
     
     public List<Tip> getAllTips(){
