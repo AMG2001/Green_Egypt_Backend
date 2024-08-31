@@ -61,6 +61,10 @@ public class UserService {
         return newUserWithFullAttributes;
     }
 
+    public void deleteUser(String uuid){
+        userRepo.deleteById(uuid);
+    }
+
 
     private boolean checkIfEmailOrPhoneNumberExist(User user){
         /**
