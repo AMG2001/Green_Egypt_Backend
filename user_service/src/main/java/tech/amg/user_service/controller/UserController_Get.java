@@ -5,14 +5,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import tech.amg.user_service.domain.dto.TipDto;
 import tech.amg.user_service.domain.entity.User;
 import tech.amg.user_service.exceptions.UserAlreadyExistException;
+import tech.amg.user_service.feign.TipsServiceInterface;
 import tech.amg.user_service.service.UserService;
+import tech.amg.user_service.service.feignServices.TipsFeignService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("users")
 public class UserController_Get {
 
+    private TipsFeignService tipsFeignService;
     private UserService userService;
 
     @Autowired
@@ -50,5 +56,13 @@ public class UserController_Get {
             return  ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
+
+    @GetMapping("tips")
+    public ResponseEntity<List<TipDto>> getAllTipsFromUserService(){
+        return ResponseEntity.ok(tipsFeignService.getAllTips());
+    }
+
+    @Autowired
+    public void setTipsFeignService(TipsFeignService tipsFeignService) {this.tipsFeignService = tipsFeignService;}
 
 }

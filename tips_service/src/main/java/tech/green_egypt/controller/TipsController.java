@@ -17,12 +17,12 @@ import tech.green_egypt.service.TipService;
 
 @RestController
 @RequestMapping("tips")
-public class EcoFriendlyServiceController {
+public class TipsController {
 
     private TipService tipService;
 
     @Autowired
-    public EcoFriendlyServiceController(TipService tipService) {
+    public TipsController(TipService tipService) {
         this.tipService = tipService;
     }
 
