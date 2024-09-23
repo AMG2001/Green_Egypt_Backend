@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
+@
 @EnableFeignClients("tech.amg.user_service.feign")
 public class UserServiceApplication {
 
